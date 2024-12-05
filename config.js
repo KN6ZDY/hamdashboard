@@ -1,4 +1,4 @@
-const topBarCenterText = `VA3HDL - FN04ga`;
+const topBarCenterText = `KN6ZDY - DM13LL`;
 
 // Grid layout
 var layout_cols = 4;
@@ -13,7 +13,7 @@ const aURL = [
   ["add10d", "BACK", "#", "1", "R"],
   ["ff9100", "Refresh", "#", "1"],
   ["0dd1a7", "Help", "#", "1"],
-  ["2196F3", "CLUBLOG", "https://clublog.org/livestream/VA3HDL", "1.7"],
+  ["2196F3", "CLUBLOG", "https://clublog.org/livestream/KN6ZDY", "1.7"],
   [
     "2196F3",
     "CONTEST",
@@ -24,7 +24,7 @@ const aURL = [
   [
     "2196F3",
     "LIGHTNING",
-    "https://map.blitzortung.org/#3.87/36.5/-89.41",
+    "https://map.blitzortung.org/#4.48/37.98/-116.39",
     "1",
     "R",
   ],
@@ -40,14 +40,14 @@ const aURL = [
   [
     "2196F3",
     "WEATHER",
-    "https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=44.0157&lon=-79.4591&zoom=5",
+    "https://www.accuweather.com/en/us/temecula/92590/weather-forecast/337272",
     "1",
     "R",
   ],
   [
     "2196F3",
     "WINDS",
-    "https://earth.nullschool.net/#current/wind/surface/level/orthographic=-78.79,44.09,3000",
+    "https://earth.nullschool.net/#current/wind/surface/level/orthographic=-115.07,37.01,1137",
     "1",
     "R",
   ],
@@ -63,7 +63,7 @@ const aIMG = [
   ["RADAR", "https://radar.weather.gov/ridge/standard/CONUS_loop.gif"],
   [
     "LOCAL RADAR",
-    "https://radar.weather.gov/ridge/standard/KNQA_loop.gif",
+    "https://radar.weather.gov/ridge/standard/KNKX_loop.gif",
   ],
   [
     "NOAA D-RAP",
@@ -74,12 +74,12 @@ const aIMG = [
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=iss&width=600&height=300&mode=M&satid=25544",
   ],
   [
-    "SATELLITE CAN",
-    "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/can/EXTENT3/GOES16-CAN-EXTENT3-1125x560.gif",
+    "SATELLITE PAC",
+    "https://cdn.star.nesdis.noaa.gov/GOES18/GLM/CONUS/EXTENT3/GOES18-CONUS-EXTENT3-625x375.gif",
   ],
   [
-    "SATELLITE CGL",
-    "https://cdn.star.nesdis.noaa.gov/GOES16/GLM/SECTOR/cgl/EXTENT3/GOES16-CGL-EXTENT3-600x600.gif",
+    "SATELLITE PSW",
+    "https://cdn.star.nesdis.noaa.gov/GOES18/ABI/SECTOR/psw/GEOCOLOR/GOES18-PSW-GEOCOLOR-600x600.gif",
   ],
   [
     "LIGHTNING",
@@ -87,7 +87,7 @@ const aIMG = [
   ],
   [
     "LIGHTNING LOCAL",
-    "https://www.blitzortung.org/en/Images/image_b_ny.png",
+    "https://www.blitzortung.org/en/Images/image_b_ca.png",
   ],
   ["YOUTUBE EXAMPLE", "iframe|https://www.youtube.com/embed/fzPFaXAV_2Y?autoplay=1&mute=1"],
   [
