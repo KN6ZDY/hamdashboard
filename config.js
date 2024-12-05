@@ -28,11 +28,11 @@ const aURL = [
     "1",
     "R",
   ],
-  ["2196F3", "PISTAR", "http://pi-star.local/", "1.2"],
+  //["2196F3", "PISTAR", "http://pi-star.local/", "1.2"],
   [
     "2196F3",
     "RADAR",
-    "https://weather.gc.ca/?layers=alert,radar&center=43.39961001,-78.53212031&zoom=6&alertTableFilterProv=ON",
+    "https://www.accuweather.com/en/us/temecula/92590/weather-radar/337272",
     "1",
     "R"
   ],
@@ -89,14 +89,14 @@ const aIMG = [
     "LIGHTNING LOCAL",
     "https://www.blitzortung.org/en/Images/image_b_ca.png",
   ],
-  ["YOUTUBE EXAMPLE", "iframe|https://www.youtube.com/embed/fzPFaXAV_2Y?autoplay=1&mute=1"],
-  [
-    "WEBSITE EXAMPLE",
-    "iframe|https://globe.adsbexchange.com/?airport=YYZ",
-  ],
-  ["VIDEO EXAMPLE", "https://himawari8.nict.go.jp/movie/720/20240611_pifd.mp4"],
-  ["HF PROPAGATION",
-    "https://www.hamqsl.com/solar101vhf.php"],
+  //["YOUTUBE EXAMPLE", "iframe|https://www.youtube.com/embed/fzPFaXAV_2Y?autoplay=1&mute=1"],
+  //[
+  //  "WEBSITE EXAMPLE",
+  //  "iframe|https://globe.adsbexchange.com/?airport=YYZ",
+  //["Grid Square Locator",
+  //  "iframe|https://www.levinecentral.com/ham/grid_square.php",
+  //],
+  //["VIDEO EXAMPLE", "https://himawari8.nict.go.jp/movie/720/20240611_pifd.mp4"],
   [
     "RS-44 POSITION",
     "https://www.heavens-above.com/orbitdisplay.aspx?icon=default&width=600&height=300&mode=M&satid=44909",
@@ -104,10 +104,11 @@ const aIMG = [
   ["Solar WX",
     "https://services.swpc.noaa.gov/images/animations/suvi/primary/map/latest.png"],
   ["HF PROPAGATION",
-    "https://www.hamqsl.com/solar100sc.php"],
+      "https://www.hamqsl.com/solar101vhf.php"],
   ["HF PROPAGATION",
     "https://www.hamqsl.com/solarpich.php"],
 ];
 
 // Image rotation intervals in milliseconds per tile - If the line below is commented, all tiles will be rotated every 30000 milliseconds (30s)
-const tileDelay = [11200,10000,11000,10100,10200,10500,10300,10600,30400,60700,60900,10800,30400,60700,60900,10800];
+//const tileDelay = [11200,10000,11000,10100,10200,10500,10300,10600,30400,60700,60900,10800,30400,60700,60900,10800];
+const tileDelay = [11200,10000,11000,10100,10200,10500,10300,10600,30400,60700,60900,10800];
