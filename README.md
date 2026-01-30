@@ -1,211 +1,187 @@
-Original VA3HDL [YouTube - Presentation video](https://www.youtube.com/watch?v=sIdqMQTGNSc)
+# Ham Dashboard (hamdashboard)
 
-VA3HDL en español [YouTube - Video en español](https://www.youtube.com/watch?v=IBMxELofKVA)
+Live demo: [Hamdash Demo](https://va3hdl.github.io/hamdash/)
 
-[Hamdash Demo](https://va3hdl.github.io/hamdash/)  -- Test it here before download
+This repository provides a simple, browser-based ham radio dashboard that displays images, maps, web pages, and feeds in a configurable grid. It is lightweight, easy to host, and suitable for use on a local computer, Raspberry Pi, or a static host such as GitHub Pages or Cloudflare Pages.
 
-### User submitted live Dashboards:
+Quick demo videos:
+- Original presentation: [YouTube - VA3HDL presentation](https://www.youtube.com/watch?v=sIdqMQTGNSc)
+- Spanish overview: [YouTube - VA3HDL en español](https://www.youtube.com/watch?v=IBMxELofKVA)
 
-[BCAT N4TDX](https://qsl.net/n/n5ng/BCAT/)  -- by Steve N5NG, in use by the Brevard County (Florida) ARES Team
+## User-submitted public dashboards
+These live dashboards were shared by members of the ham community:
 
-* Links for Steve's weather and hamradio config.js as .txt files:
-  * https://qsl.net/n5ng/config.txt
-  * https://qsl.net/n5ng/HAM/config.txt
+- [BCAT N4TDX](https://qsl.net/n/n5ng/BCAT/) — Steve N5NG (Brevard County ARES)
+  - Steve's config files (as .txt): <https://qsl.net/n5ng/config.txt> and <https://qsl.net/n5ng/HAM/config.txt>
+- [FFX DEMS](https://kq4dne.github.io/WeatherDash/WeatherDash.html) — Sandy KQ4DNE
+- [FFX ARES](https://kq4dne.github.io/hamdash/hamdash.html) — Sandy KQ4DNE
+- [WA4MED](https://dashboard.wa4med.us/hamdash.html) — Matthew WA4MED
+- [PY3TX](https://dashboard.py3tx.com/) — South America
+- [VE7CAS](https://hamradio.smecher.bc.ca/) — Vancouver, BC
+- [G0IKV](https://g0ikv.qsy.to/) — Southport, England
+- [OK1SLM](https://www.qsl.net/ok1slm/) — Prague
+- [VK3VSN](https://www.vicscan.com/hamdash/) — Melbourne, Australia
+- [K6BCW](https://elihickox.com/radio/hamdashboard/hamdash.html) — San Francisco Bay Area
+- [KN6PTQ](https://kn6ptq.com/) — San Francisco Bay Area
+- [W2SZ](https://dashboard.w2sz.org/) — NE US
+- [N2YQT](https://dashboard.tourge.net/) — NE US
+- [KC2VWR](https://baef57ae.ham-desktop.pages.dev/) — NE US
+- [KD2YFY](https://dash.kd2yfy.net/) — NE US
+- [KD4VRD](https://hamdashboard-8fn.pages.dev/) — North Carolina
+- [KD5PQJ](https://kd5pqj.com/dash/index.html) — Texas
+- [N5GAH](http://n5gah.com/) — Texas
+- [KJ7YYI](https://kj7yyi.net/ham-dash/) — Arizona
+- [NQ0M](https://hamdash.nq0m.com/#) — Kansas
+- [W3RDW](https://dashboard.w3rdw.radio/) — Ohio
+- [W4QAL](https://w4qal.net/dashboard/index.html) — West Florida
 
-[FFX DEMS](https://kq4dne.github.io/WeatherDash/WeatherDash.html)  -- by Sandy KQ4DNE for Emergency Management Weather
+## Quick start
 
-[FFX ARES](https://kq4dne.github.io/hamdash/hamdash.html)  -- by Sandy KQ4DNE for ARES
+1. Download the following files from this repository into a single folder: `hamdash.html`, `config.js`, and `wheelzoom.js`.
+2. Open `hamdash.html` in your browser.
+3. Use the right-side menu and select "Setup" to open the settings UI and configure your dashboard.
+4. Alternatively, edit `config.js` in a text editor to set sources, menus, and layout.
+5. Load configuration from the browser (Local Storage) or from `config.js`, then save your settings.
 
-[WA4MED](https://dashboard.wa4med.us/hamdash.html)  -- by Matthew WA4MED
+**Notes**
+- For hosted (server) installations, store settings in `config.js` so the server serves the same configuration to all visitors.
+- For personal use or testing, Local Storage keeps changes specific to your browser session.
+- Now is possible to use a pure Json file format for the configuration load on hosted environments
+- For file:// access (non-hosted usage) a newer JsonP-style format is available for the configuration load
 
-[PY3TX](https://dashboard.py3tx.com/) -- South America
+## Settings UI
 
-[VE7CAS](https://hamradio.smecher.bc.ca/) -- Vancouver, BC
+The settings UI provides buttons to manage configurations and backups:
 
-[OK1SLM](https://www.qsl.net/ok1slm/) -- Prague, EU
+<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/settings_buttons.png?raw=true" width="800">
 
-[K6BCW](https://elihickox.com/radio/hamdashboard/hamdash.html) -- San Francisco bay area
+- Save Settings to Local Storage — Save current page settings in the browser.
+- Reset to Defaults — Restore sample settings for testing.
+- Backup Settings to JSON file — Download a JSON file with your settings.
+- Restore Settings from JSON file — Load settings from a JSON backup.
+- Import from `config.js` — Load settings defined in a `config.js` file (recommended for servers).
+- Export to `config.js` — Export current settings in `config.js` format for hosting.
 
-[KN6PTQ](https://kn6ptq.com/) -- San Francisco Bay Area
+## Public dashboards and safety
 
-[W2SZ](https://dashboard.w2sz.org/)  -- NE US by Brian W2SZ
+The "Setup" UI cannot modify the server-side `config.js` file. When a visitor switches a public dashboard to Local Storage, the change affects only that visitor's browser. To hide the **Setup** option or **Load Cfg** option on public installations, add the following lines to your `config.js`:
 
-[N2YQT](https://dashboard.tourge.net/)  -- NE US by Ryan N2YQT
+```
+const disableSetup = true;
+const disableLdCfg = true;
+```
 
-[KC2VWR](https://baef57ae.ham-desktop.pages.dev/) -- NE US
+## Video guides
 
-[KD2YFY](https://dash.kd2yfy.net/) -- NE US
+- [Configuration instructions — Jason KM4ACK](https://youtu.be/9ZZXg60tN-o)
+- [Raspberry Pi setup — Andreas M0FXB](https://www.youtube.com/watch?v=Km_vOCvCMFM)
+- [Live stream — Frank KG6NLW](https://www.youtube.com/watch?v=rJHCpNHDbC0&t=140s)
+- [Live stream — KM9G](https://www.youtube.com/watch?v=ohlHaSsf6B8=400s)
+- [Ham Dashboard on Inovato Quadra — Peter KJ5AJB](https://www.youtube.com/watch?v=u07Oz-YSrQY)
+- [French review — Jean-Benard F5SVP](https://www.youtube.com/watch?v=o9Dl9A5hqQI)
+- [Spanish instructions — Jose EA8EE](https://www.youtube.com/watch?v=3CnsfB3zNuM)
 
-[KD4VRD](https://hamdashboard-8fn.pages.dev/) -- North Carolina
+## Docker
 
-[KD5PQJ](https://kd5pqj.com/dash/index.html) -- Texas
+Michael Stevens maintains a Docker image: [michaelsteven/hamdashboard](https://registry.hub.docker.com/r/michaelsteven/hamdashboard)
 
-[N5GAH](http://n5gah.com/) -- Texas
+## How to use
 
-[KJ7YYI](https://kj7yyi.net/ham-dash/) -- Arizona
+- Double-click an image to view full-screen; double-click again to close.
+- Right-click an image to cycle to the next image (if multiple images are assigned to a tile).
+- Tiles refresh independently (default refresh behavior: every 5 minutes for most sources).
+- Tiles with iFrames: double click to unlock the tile and interact with the content
 
-[NQ0M](https://hamdash.nq0m.com/#) -- Kansas
+## Pi-Star iFrame embedding (fix)
 
-[W3RDW](https://dashboard.w3rdw.radio/) -- Ohio
+If a remote site sets the `X-Frame-Options` header it may prevent embedding via iframes. On Pi-Star you can temporarily switch to read/write, edit the nginx security config, and restart nginx:
 
-[W4QAL](https://w4qal.net/dashboard/index.html) -- SE US - West Florida
+```bash
+rpi-rw
+sudo nano /etc/nginx/default.d/security.conf
+# comment out: add_header X-Frame-Options  "SAMEORIGIN";
 
-### Instructions:
-1. Just download the files from the Github repository (hamdash.html, config.js, and wheelzoom.js) and keep them together on the same folder.
-2. Open hamdash.html with any browser of your preference and you done.
-3. With any text editor (like Notepad) you can change the source images (can be more than one per box) or the menu options from the config.js file.
+sudo systemctl restart nginx.service
+```
 
-### YouTube coverage:
-[YouTube - Configuration instructions contributed by Jason KM4ACK](https://youtu.be/9ZZXg60tN-o)
-
-[YouTube - Raspberry Pi instructions contributed by Andreas M0FXB](https://www.youtube.com/watch?v=Km_vOCvCMFM)
-
-[YouTube - Live Stream with Ham Radio Wilderness Frank KG6NLW](https://www.youtube.com/watch?v=rJHCpNHDbC0&t=140s)
-
-[YouTube - Live Stream with Temporarily Offline Ham Radio KM9G](https://www.youtube.com/watch?v=ohlHaSsf6B8=400s)
-
-[YouTube - Ham Dashboard on Inovato Quadra by Peter KJ5AJB](https://www.youtube.com/watch?v=u07Oz-YSrQY)
-
-[YouTube - French review and instructions by Jean-Benard F5SVP](https://www.youtube.com/watch?v=o9Dl9A5hqQI)
-
-[YouTube - Repaso e instrucciones en Español con Jose EA8EE](https://www.youtube.com/watch?v=3CnsfB3zNuM)
-
-### Docker:
-[Docker version](https://registry.hub.docker.com/r/michaelsteven/hamdashboard)  -- by Michael Stevens
-
-### Quick Help:
-* Double click on an image to expand to full screen.
-* Double click again to close full screen view.
-* Right click on an image to display the next one. (In the latest version is possible to add multiple images per box.)
-* The content refreshes automatically every 5 minutes.
-
-Is that easy!
-
-73 de Pablo, VA3HDL
-
-### Fix for Pi-Star iFrame embedding issues:
-This error can occur if the server has certain security measures in place, such as the x-frame-options header, which prevents its content from being embedded on other websites using iframes.
-
-1. Login via ssh to the pi-star then run this command to switch to Read/Write mode:
-
-        rpi-rw
-
-2. Edit the file nginx security.conf file:
-
-        sudo nano /etc/nginx/default.d/security.conf
-
-3. comment the line below with a "#" in front, like this:
-
-        # add_header X-Frame-Options  "SAMEORIGIN";
-
-4. Run this command to switch back to Read Only mode:
-
-        rpi-ro
-
-5. Now you can either reboot your Pi-Star, or just restart the nginx service:
-
-        sudo systemctl restart nginx.service
+This screenshot shows Pi-Star settings:
 
 <img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/pistar.png?raw=true" width="400">
 
-### More on iFrame embedding:
-There is very little that can be done on the client side if the source site does not allow embedding the site inside another page (like the dashboard!) specially if the user  can't change the server settings (most cases.)
+## iFrame tips
 
-As a workaround for these issues, I've tested running a local proxy on my computer to strip out the x-frame-options header coming from the source server and it worked well on some cases. But setting up a proxy adds another layer of complexity to the setup.
+If the source server forbids embedding and you cannot change its headers, options are limited. A local proxy that strips the header can work but adds complexity. Use the online tool to test a URL before adding it to a tile: [iFrame Tester online](https://iframetester.com/)
 
-Use this online tool to test any URL to see if it can be displayed in an iframe before adding it to the dashboard -> [iFrame Tester online](https://iframetester.com/)
+## Changelog highlights (most recent)
 
-## Updates
+See the chronological entries below for full details. Notable recent changes:
 
-If you want to upgrade to the latest version, the only file you need to update is hamdash.html (do not overwrite your config.js file.)
+- 2026.01.24 — Added 10 features:
+  1. JSON & JSONP Configuration Support (example .json and JsonP .js files added to the repo)
+  2. Dynamic Date Placeholders
+  3. Rotating Tile **Titles** - Requested by multiple users, see example in all 3 config files
+  4. Smart Mixed-Media Interactivity (for tiles mixing images, videos, iFrames)
+  5. Enhanced Full-Screen Navigation
+  6. Setup UI Improvements
+  7. Enhanced Breadcrumb Navigation to provide always a return path to previous configs
+  8. PREVIOUS Menu Button
+  9. Enhanced Config File Detection to support various file formats
+  10. File Picker Integration to load different dashboards on the fly
 
-Check updated demo!
+- 2026.01.22 — Added directives to load images and iframes with colors inverted. Full details on the release notes.
+- 2026.01.17 — Ability to load any config files via the menu.
+- 2025.11.12 — Switch between multiple config files (e.g., `satellite.js`) via the menu.
+- 2025.04.02 — RSS feed refresh times configurable; feed ticker added.
+- 2025.03.29 — Scrolling RSS ticker and clickable feed items.
+- 2025.01.24 — Settings merged into `hamdash.html`; realtime variable changes enabled.
 
-### 2024.11.13 Changelog:
+## Upgrade notes
 
-- Added capability to customize the grid size (any combination of number of columns and number of rows for the dashboard tiles.) See examples and usage below.
-- Removed "VA3HDL" from the page title.
-- Grid size examples:
+- For simpler sintax you can now use Json or JsonP files for config files
+- Read the specific upgrade notes in the changelog below before replacing `config.js`
+- To use multiple config files, add a menu entry in `config.js` such as:
 
---> 2x2:
+```
+var aURL = [  
+  ["f3de21ff", "SATS", "satellite.js"],
+  ["f3de21ff", "WX", "weather.js", "1", "R"]
+];
+```
+**Rotating Tile Titles Usage:**
+
+Pass an array as the first element of a tile configuration.
+```javascript
+// Example in config.js
+[
+  ["Radar CONUS", "Radar Local"], 
+  "https://radar.com/map1.gif", 
+  "https://radar.com/map2.gif"
+]
+```
+## Example images
+
+<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/satellite.png?raw=true" width="600">
+<img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/config.png?raw=true" width="600">
+
+Grid examples
 
 <img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/2x2.png?raw=true" width="200">
-
---> 3x3:
-
 <img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/3x3.png?raw=true" width="200">
-
---> 4x4:
-
 <img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/4x4.png?raw=true" width="200">
-
---> 5x3:
-
 <img src="https://github.com/VA3HDL/hamdashboard/blob/main/examples/5x3.png?raw=true" width="200">
 
-- Usage: Add these lines to your config.js file
+## More notes and history
 
-        // Grid layout
-        var layout_cols = 4;
-        var layout_rows = 3;
+The repository includes a detailed changelog documenting fixes, features, and upgrade instructions dating back through 2024. Please review the changelog entries below before performing upgrades.
 
+[Releases & Change logs](https://github.com/VA3HDL/hamdashboard/releases)
 
-### 2024.10.16 Changelog:
+## Host with Cloudflare Pages (free)
 
-- Added website capability to tiles using "iframe|" keyword before the tile URL. Check the updated config.js file for usage examples. The tiles can contain any website that supports embedding using iFrame, including live YouTube videos!
-
-### 2024.07.24 Changelog:
-
-- Added "Discussions" to GitHub options for users to share their menu and image sources and anything else interesting -- https://github.com/VA3HDL/hamdashboard/discussions
-
-### 2024.07.06 Changelog:
-
-- Add version check and minor fixes.
-
-### 2024.07.05 Changelog:
-
-- Removed 5 minutes page autorefresh. Now all tiles refresh separatelly (at same or different intervals.) So there is no longer needed refresh the entire page.
-
-### 2024.07.04 Changelog:
-
-- Full screen images will rotate with mouse right click (when there is more than one image on the selected tile)
-- Added the ability to set individual image rotation at different intervals per tile adding a line like this at the end of the config.js file:
-
-        const tileDelay = [5000,4000,3000,2000,1000,6000,7000,8000,9000,8500,7500,6500];
-
-### 2024.06.12 Changelog:
-
-- Added menu option (right side menu) to display on screen the various sources for images and menu options to facilitate sharing URL sources in our user community
-
-### 2024.06.08 Changelog:
-
-- Added support to play videos (along with the images.) Some modernized sites provide .mp4 videos instead of animated GIFS.
-
-### 2024.06.05 Changelog:
-
-- Added image loading error handling
-- Added workaround to prevent images being cached on the browser and not getting updated
-
-### 2024.05.27 Changelog:
-
-- Moved the configuration parts of the JavaScript code to its own file "config.js" so it is easy to upgrade after updates to the main code. Suggested by Lou KI5FTY.
-- Improved menu usability
-
-### 2024.05.25 Changelog:
-
-- Removed dependencies to local installed fonts. Fonts now are loaded from Google Fonts directly to ensure consistency.
-- Ability to add multiple images per position. Images are rotated automatically every 30 seconds.
-- Autorefresh is now paused automatically when switching to a website (from menu) or when an image is zoomed-in to full screen
-- Moved configuration variables to the top of the script and added extra commentary to ease the initial setup
-- Added menu to the right of the page. Now the left menu has ham radio links and right menu has weather links
-
-## Host your dashboard with Cloudflare Pages, free
-
-Tutorial contributed by Robert W3RDW
-
+Tutorial contributed by Robert W3RDW:
 [How to host your dashboard with Cloudflare Pages, free](https://w3rdw.radio/posts/hamdashboard/)
 
-## Samples
+## Sample dashboards submitted by users
 
 ![VA3HDL Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/dashboard_sample.png?raw=true)
 
@@ -251,8 +227,10 @@ Tutorial contributed by Robert W3RDW
 
 ![WX9WTF Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/WX9WTF-sample.jpg?raw=true)
 
-### Dual menu example:
+### Dual menu example
+
 ![Dual side Menu Sample Dashboard](https://github.com/VA3HDL/hamdashboard/blob/main/examples/DualMenu.png?raw=true)
 
-### Sources display example:
+### Sources display example
+
 ![Sources display example](https://github.com/VA3HDL/hamdashboard/blob/main/examples/sources.png?raw=true)

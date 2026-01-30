@@ -1,4 +1,6 @@
-const topBarCenterText = `VA3HDL - FN04ga`;
+const disableSetup = false;
+const disableLdCfg = false;
+var topBarCenterText = `VA3HDL - FN04ga - .js`;
 
 // Grid layout
 var layout_cols = 4;
@@ -8,11 +10,9 @@ var layout_rows = 3;
 // Structure is as follows HTML Color code, Option, target URL, scaling 1=Original Size, side (optional, nothing is Left, "R" is Right)
 // The values are [color code, menu text, target link, scale factor, side],
 // add new lines following the structure for extra menu options. The comma at the end is important!
-const aURL = [
-  ["add10d", "BACK", "#", "1"],
-  ["add10d", "BACK", "#", "1", "R"],
-  ["ff9100", "Refresh", "#", "1"],
-  ["0dd1a7", "Help", "#", "1"],
+var aURL = [
+  ["f3de21", "SATS", "satellite.js"],
+  
   ["2196F3", "CLUBLOG", "https://clublog.org/livestream/VA3HDL", "1.7"],
   [
     "2196F3",
@@ -32,7 +32,7 @@ const aURL = [
   [
     "2196F3",
     "RADAR",
-    "https://weather.gc.ca/?layers=alert,radar&center=43.39961001,-78.53212031&zoom=6&alertTableFilterProv=ON",
+    "dark|https://weather.gc.ca/?layers=alert,radar&center=43.39961001,-78.53212031&zoom=6&alertTableFilterProv=ON",
     "1",
     "R"
   ],
@@ -59,15 +59,15 @@ const aURL = [
 // the comma at the end is important!
 // You can't add more items because there are only 12 placeholders on the dashboard
 // but you can replace the titles and the images with anything you want.
-const aIMG = [
-  ["RADAR", "https://radar.weather.gov/ridge/standard/CONUS_loop.gif"],
+var aIMG = [
+  [["Radar CONUS", "Radar Small"], "https://radar.weather.gov/ridge/standard/CONUS-LARGE_loop.gif", "https://radar.weather.gov/ridge/standard/CONUS_loop.gif"],
   [
-    "LOCAL RADAR",
-    "https://radar.weather.gov/ridge/standard/KNQA_loop.gif",
+    "LOCAL RADAR (inverted)",
+    "invert|https://radar.weather.gov/ridge/standard/KNQA_loop.gif",
   ],
   [
-    "NOAA D-RAP",
-    "https://services.swpc.noaa.gov/images/animations/d-rap/global/d-rap/latest.png",
+    "NOAA D-RAP (inverted)",
+    "invert|https://s.w-x.co/staticmaps/wu/wxtype/county_loc/bgm/animate.png",
   ],
   [
     "ISS POSITION",
@@ -97,17 +97,18 @@ const aIMG = [
   ["VIDEO EXAMPLE", "https://himawari8.nict.go.jp/movie/720/20240611_pifd.mp4"],
   ["HF PROPAGATION",
     "https://www.hamqsl.com/solar101vhf.php"],
-  [
-    "RS-44 POSITION",
-    "https://www.heavens-above.com/orbitdisplay.aspx?icon=default&width=600&height=300&mode=M&satid=44909",
-  ],
-  ["Solar WX",
-    "https://services.swpc.noaa.gov/images/animations/suvi/primary/map/latest.png"],
-  ["HF PROPAGATION",
-    "https://www.hamqsl.com/solar100sc.php"],
-  ["HF PROPAGATION",
-    "https://www.hamqsl.com/solarpich.php"],
 ];
 
 // Image rotation intervals in milliseconds per tile - If the line below is commented, all tiles will be rotated every 30000 milliseconds (30s)
-const tileDelay = [11200,10000,11000,10100,10200,10500,10300,10600,30400,60700,60900,10800,30400,60700,60900,10800];
+var tileDelay = [
+  11200,10000,11000,10100,
+  10200,10500,10300,10600,
+  30400,60700,60900,10800
+];
+
+// RSS feed items
+// Structure is [feed URL, refresh interval in minutes]
+var aRSS = [
+  ["https://www.amsat.org/feed/", 60],           // Example RSS feed, refresh every 60 minutes
+  ["https://daily.hamweekly.com/atom.xml", 120], // Example Atom feed, refresh every 120 minutes
+  ];
